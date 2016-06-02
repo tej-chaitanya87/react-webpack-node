@@ -1,0 +1,28 @@
+.sidebar {
+    position: relative;
+    height: 100%;
+    z-index: 10000000000000;
+}
+
+.sidebar .sidebar-content {
+    width: 300px;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transition: transform ease 300ms;
+}
+
+.sidebar .sidebar-content.left {
+    transform: translate(-300px, 0);
+}
+
+.sidebar .sidebar-content.left.visible {
+    transform: translate(0, 0);
+}
+
+.sidebar .sidebar-content .right {
+    transform: translate(100%, 0);
+}

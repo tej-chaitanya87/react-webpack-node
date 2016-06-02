@@ -1,0 +1,29 @@
+.content {
+    text-align: center;
+    list-style: none;
+}
+
+.content .header {
+    background-color: #0f9d58;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+    color: #ffffff;
+    word-spacing: 2px;
+}
+
+.content .menu {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.content .menu .menu-item {
+    height: 50px;
+    font-size: 30px;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #dddddd;
+    line-height: 50px;
+    color: #0b97c4;
+}

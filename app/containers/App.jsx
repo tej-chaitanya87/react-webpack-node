@@ -1,8 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes, Component} from 'react';
 import Navigation from 'containers/Navigation';
 import Message from 'containers/Message';
 import classNames from 'classnames/bind';
 import styles from 'css/main';
+import SideBar from 'components/SideBar';
+import SidebarContent from 'components/SidebarContent'
+import {connect} from 'react-redux'
 
 const cx = classNames.bind(styles);
 
@@ -16,18 +19,33 @@ const cx = classNames.bind(styles);
  * A better explanation of react-router is available here:
  * https://github.com/rackt/react-router/blob/latest/docs/Introduction.md
  */
-const App = ({children}) => {
-  return (
-    <div className={cx('app')}>
-      <Navigation />
-      <Message />
-        {children}
-    </div>
-  );
-};
+class App extends Component {
+
+    render() {
+        let isVisible=this.props.showSidebar
+        return (
+            <SideBar isVisible={isVisible}
+            sidebar={SidebarContent()}>
+                <div className={cx('app')}>
+                    <Navigation />
+                    <Message />
+                    {this.props.children}
+                 </div>
+            </SideBar>
+        );
+    }
+}
+;
 
 App.propTypes = {
-  children: PropTypes.object
+    children: PropTypes.object
 };
 
-export default App;
+function mapStateToProps(state,props) {
+    return {
+        showSidebar: state.sidebar.showSidebar,
+        ...props
+    };
+}
+
+export default connect(mapStateToProps,null)(App);
